@@ -1,79 +1,76 @@
 body {
+    background: #121212;
+    color: white;
     font-family: Arial, sans-serif;
-    background: url('background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    text-align: center;
     margin: 0;
+    padding: 20px;
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.1); /* Transparency effect */
+    max-width: 800px;
+    margin: auto;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+input, button {
     width: 90%;
-    max-width: 600px;
-    backdrop-filter: blur(10px);
-    text-align: center;
-}
-
-h1 {
-    color: white;
-}
-
-input, textarea {
-    width: 100%;
     margin: 10px 0;
     padding: 10px;
-    border: none;
-    border-radius: 5px;
     font-size: 16px;
 }
 
-textarea {
-    height: 200px;
-    font-family: monospace;
-    text-align: left; /* IDE-style alignment */
-}
-
 button {
-    background: #28a745;
+    background: #6200ea;
     color: white;
     border: none;
-    padding: 10px;
     cursor: pointer;
-    border-radius: 5px;
 }
 
 button:hover {
-    background: #218838;
+    background: #3700b3;
 }
 
-.card {
-    background: rgba(0, 0, 0, 0.7);
+.editor-container {
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 5px;
+    background: black;
+}
+
+.CodeMirror {
+    height: 200px;
+    font-size: 14px;
+    background: black;
     color: white;
+}
+
+.code-card {
+    background: #282c34;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.code-card pre {
+    background: #1e1e1e;
     padding: 10px;
     border-radius: 5px;
-    margin-top: 10px;
-    text-align: left;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .delete-btn {
-    background: #dc3545;
+    background: red;
     color: white;
     border: none;
     padding: 5px;
     cursor: pointer;
-    border-radius: 3px;
-    margin-top: 5px;
 }
 
-.delete-btn:hover {
-    background: #c82333;
-}
 
 
 
