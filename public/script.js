@@ -1,30 +1,21 @@
-// Function to fetch and display saved codes
-function fetchCodes() {
-    fetch("/get-codes")
-        .then(response => response.json())
-        .then(codes => {
-            const codeList = document.getElementById("code-list");
-            codeList.innerHTML = "";
-            codes.forEach((code, index) => {
-                const codeCard = document.createElement("div");
-                codeCard.classList.add("code-card");
-                codeCard.innerHTML = `
-                    <h3>${code.title}</h3>
-                    <pre>${code.content}</pre>
-                    <button class="delete-btn" onclick="deleteCode(${index})">Delete</button>
-                `;
-                codeList.appendChild(codeCard);
-            });
-        });
-}
+let editor;
 
-// Function to submit a new code
+document.addEventListener("DOMContentLoaded", () => {
+    editor = CodeMirror.fromTextArea(document.getElementById("codeInput"), {
+        mode: "javascript",
+        lineNumbers: true,
+        autoCloseBrackets: true,
+        theme: "dracula"
+    });
+    loadCodes();
+});
+
 function submitCode() {
-    const title = document.getElementById("title").value;
-    const content = document.getElementById("code").value;
+    const title = document.getElementById("codeTitle").value;
+    const content = editor.getValue();
 
     if (!title || !content) {
-        alert("Title and code cannot be empty!");
+        alert("Please enter both a title and code!");
         return;
     }
 
@@ -33,23 +24,37 @@ function submitCode() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title, content })
     })
-    .then(response => response.json())
+    .then(res => res.json())
     .then(() => {
-        document.getElementById("title").value = "";
-        document.getElementById("code").value = "";
-        fetchCodes(); // Refresh the list after submitting
+        document.getElementById("codeTitle").value = "";
+        editor.setValue("");
+        loadCodes();
     });
 }
 
-// Function to delete a code
-function deleteCode(index) {
-    fetch(`/delete-code/${index}`, { method: "DELETE" })
-        .then(response => response.json())
-        .then(() => {
-            fetchCodes(); // Refresh the list after deleting
+function loadCodes() {
+    fetch("/get-codes")
+        .then(res => res.json())
+        .then(codes => {
+            const container = document.getElementById("codeContainer");
+            container.innerHTML = "";
+            codes.forEach((code, index) => {
+                const div = document.createElement("div");
+                div.classList.add("code-card");
+                div.innerHTML = `
+                    <h3>${code.title}</h3>
+                    <pre><code>${code.content}</code></pre>
+                    <button class="delete-btn" onclick="deleteCode(${index})">Delete</button>
+                `;
+                container.appendChild(div);
+            });
         });
 }
 
-// Load codes when page loads
-fetchCodes();
+function deleteCode(index) {
+    fetch(`/delete-code/${index}`, { method: "DELETE" })
+        .then(res => res.json())
+        .then(() => loadCodes());
+}
+
 
