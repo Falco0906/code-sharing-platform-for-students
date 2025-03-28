@@ -3,33 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Sharing Hub</title>
+    <title>Code Sharing Platform</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- CodeMirror Stylesheet -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/codemirror.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/theme/dracula.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>🚀 Code Sharing Hub</h1>
-        <input type="text" id="codeTitle" placeholder="Enter Code Title...">
+    <h1>Code Sharing Platform</h1>
 
-        <!-- CodeMirror Editor -->
-        <textarea id="codeInput"></textarea>
-
-        <button id="submitButton">Submit Code</button>
-        
-        <h2>Pinned Codes:</h2>
-        <div id="pinnedCodes"></div>
+    <div class="form-container">
+        <input type="text" id="title" placeholder="Enter Code Title">
+        <textarea id="code" placeholder="Write your code here..."></textarea>
+        <button onclick="submitCode()">Submit Code</button>
     </div>
 
-    <!-- CodeMirror Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/mode/javascript/javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/mode/python/python.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/mode/htmlmixed/htmlmixed.min.js"></script>
+    <div id="code-list"></div>
 
     <script src="script.js"></script>
 </body>
 </html>
+

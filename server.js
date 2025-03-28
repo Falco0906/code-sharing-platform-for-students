@@ -12,9 +12,9 @@ app.use(bodyParser.json());
 // Serve frontend from "public" folder
 app.use(express.static(path.join(__dirname, "public")));
 
-// API to get saved codes
-let savedCodes = []; // In-memory storage
+let savedCodes = []; // In-memory storage (Replace with DB in future)
 
+// API to get saved codes
 app.get("/get-codes", (req, res) => {
     res.json(savedCodes);
 });
@@ -29,13 +29,24 @@ app.post("/submit-code", (req, res) => {
     res.json({ message: "Code saved successfully!" });
 });
 
-// Serve `index.html` for all unknown routes (so frontend always loads)
+// API to delete a code by index
+app.delete("/delete-code/:index", (req, res) => {
+    const index = parseInt(req.params.index);
+    if (index >= 0 && index < savedCodes.length) {
+        savedCodes.splice(index, 1);
+        res.json({ message: "Code deleted successfully!" });
+    } else {
+        res.status(400).json({ error: "Invalid index" });
+    }
+});
+
+// Serve `index.html` for all unknown routes
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// Start the server
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
+
 
