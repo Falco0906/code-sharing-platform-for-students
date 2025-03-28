@@ -1,101 +1,117 @@
-/* General Styles */
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #121212;
-    color: #ffffff;
+    color: white;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-.container {
-    width: 90%;
-    max-width: 800px;
-    background: rgba(20, 20, 20, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
-}
-
-h1 {
     text-align: center;
+    overflow-y: auto;
 }
 
-/* Code Editor Styles */
-#codeInput {
+/* Main Container */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Code Editor */
+textarea#codeInput {
     width: 100%;
-    height: 200px;
-    font-family: 'Courier New', monospace;
+    height: 300px;
+    font-family: monospace;
     font-size: 14px;
-    background-color: #1e1e1e;
-    color: #ffffff;
-    border: 1px solid #444;
+    color: #fff;
+    background: #1e1e1e;
+    border: none;
     padding: 10px;
     border-radius: 5px;
     outline: none;
-    text-align: left; /* Fixes the alignment issue */
     resize: vertical;
-    white-space: pre;
+    text-align: left;
+    overflow-y: auto;
+    max-height: 500px;
 }
 
-/* Buttons */
+/* Submit Button */
 button {
-    background-color: #6200ea;
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 10px 20px;
-    margin-top: 10px;
     cursor: pointer;
-    border-radius: 5px;
     font-size: 16px;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
 button:hover {
-    background-color: #3700b3;
+    background-color: #0056b3;
 }
 
-/* Code Display Cards */
-.code-card {
-    background: rgba(30, 30, 30, 0.9);
+/* Saved Codes Section */
+.saved-codes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* ✅ 2 per row */
+    gap: 15px;
     padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border-left: 5px solid #bb86fc;
-    overflow-x: auto;
+    justify-content: center;
 }
 
-.code-card pre {
-    font-family: 'Courier New', monospace;
-    font-size: 14px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    color: #ffffff;
+/* Individual Saved Code as a Card */
+.saved-code {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+    max-width: 400px;
+    height: 250px; /* ✅ Fixed size */
 }
 
+/* Code Title */
 .code-title {
     font-weight: bold;
-    margin-bottom: 5px;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Code Display Box (Scrolls Internally) */
+.saved-code pre {
+    background: #1e1e1e;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    color: #fff;
+    white-space: pre-wrap;
+    height: 180px; /* ✅ Fixed size */
+    overflow-y: auto; /* ✅ Enables scrolling inside */
 }
 
 /* Delete Button */
 .delete-btn {
-    background-color: #ff1744;
+    background-color: red;
     padding: 5px 10px;
+    border: none;
+    color: white;
     border-radius: 3px;
-    font-size: 12px;
-    margin-left: 10px;
     cursor: pointer;
+    margin-top: 5px;
+    align-self: flex-end;
 }
 
-div {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.delete-btn:hover {
+    background-color: darkred;
 }
+
+
 
 
 
