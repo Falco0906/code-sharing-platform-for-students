@@ -33,7 +33,7 @@ function submitCode() {
 }
 
 function loadCodes() {
-    fetch("/get-codes")
+    fetch("https://your-backend-url.onrender.com/get-codes")
         .then(res => res.json())
         .then(codes => {
             const container = document.getElementById("codeContainer");
