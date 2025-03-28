@@ -1,75 +1,103 @@
+/* General Styles */
 body {
-    background: #121212;
-    color: white;
     font-family: Arial, sans-serif;
-    text-align: center;
+    background-color: #121212;
+    color: #ffffff;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .container {
+    width: 90%;
     max-width: 800px;
-    margin: auto;
+    background: rgba(20, 20, 20, 0.9);
     padding: 20px;
-    background: #1e1e1e;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
 }
 
-input, button {
-    width: 90%;
-    margin: 10px 0;
+h1 {
+    text-align: center;
+}
+
+/* Code Editor Styles */
+#codeInput {
+    width: 100%;
+    height: 200px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #444;
     padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    text-align: left; /* Fixes the alignment issue */
+    resize: vertical;
+    white-space: pre;
+}
+
+/* Buttons */
+button {
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
     font-size: 16px;
 }
 
-button {
-    background: #6200ea;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
 button:hover {
-    background: #3700b3;
+    background-color: #3700b3;
 }
 
-.editor-container {
-    border: 1px solid #333;
-    border-radius: 5px;
-    padding: 5px;
-    background: black;
-}
-
-.CodeMirror {
-    height: 200px;
-    font-size: 14px;
-    background: black;
-    color: white;
-}
-
+/* Code Display Cards */
 .code-card {
-    background: #282c34;
+    background: rgba(30, 30, 30, 0.9);
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
+    border-left: 5px solid #bb86fc;
+    overflow-x: auto;
 }
 
 .code-card pre {
-    background: #1e1e1e;
-    padding: 10px;
-    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
     white-space: pre-wrap;
     word-wrap: break-word;
+    color: #ffffff;
 }
 
+.code-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Delete Button */
 .delete-btn {
-    background: red;
-    color: white;
-    border: none;
-    padding: 5px;
+    background-color: #ff1744;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-left: 10px;
     cursor: pointer;
 }
+
+div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
 
 
 
