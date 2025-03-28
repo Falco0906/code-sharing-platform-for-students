@@ -5,21 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Sharing Platform</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
 </head>
 <body>
     <div class="container">
         <h1>Code Sharing Platform</h1>
-        <input type="text" id="codeTitle" placeholder="Enter Code Title">
-        <textarea id="codeInput"></textarea>
+        <input type="text" id="title" placeholder="Enter code title">
+        <textarea id="codeEditor" placeholder="Write your code here..."></textarea>
         <button onclick="submitCode()">Submit Code</button>
-        <h2>Shared Codes</h2>
-        <div id="codeContainer"></div>
+        <div id="codeList"></div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
